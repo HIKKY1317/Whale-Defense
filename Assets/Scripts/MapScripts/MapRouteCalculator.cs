@@ -60,7 +60,7 @@ public class MapRouteCalculator : MonoBehaviour
             {
                 Vector2Int next = current + dir;
 
-                if (IsValidPosition(next, rows, cols) && !visited.Contains(next) && map[next.x, next.y] != '#')
+                if (IsValidPosition(next, rows, cols) && !visited.Contains(next) && map[next.x, next.y] != '#' && map[next.x, next.y] != 'T')
                 {
                     if (Mathf.Abs(dir.x) + Mathf.Abs(dir.y) == 2 && !IsValidDiagonalMove(current, next))
                     {
@@ -95,12 +95,13 @@ public class MapRouteCalculator : MonoBehaviour
 
     private bool IsValidPosition(Vector2Int pos, int rows, int cols)
     {
-        return pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols;
+        return pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols && map[pos.x, pos.y] != 'T';
     }
 
     private bool IsValidDiagonalMove(Vector2Int current, Vector2Int next)
     {
-        return map[next.x, current.y] != '#' && map[current.x, next.y] != '#';
+        return map[next.x, current.y] != '#' && map[next.x, current.y] != 'T' &&
+               map[current.x, next.y] != '#' && map[current.x, next.y] != 'T';
     }
 
     private void SendRouteToMapRoute()

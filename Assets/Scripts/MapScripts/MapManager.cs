@@ -7,8 +7,22 @@ public class MapManager : MonoBehaviour
     public void SetMapData(char[,] loadedMap)
     {
         map = loadedMap;
+        SendMapToPathChecker();
         SendMapToCreator();
         SendMapToRouteCalculator();
+    }
+
+    void SendMapToPathChecker()
+    {
+        MapPathChecker mapPathChecker = FindFirstObjectByType<MapPathChecker>();
+        if (mapPathChecker != null)
+        {
+            mapPathChecker.SetMapData(map);
+        }
+        else
+        {
+            Debug.LogError("MapPathCheckerが見つかりません。シーンに配置してください。");
+        }
     }
 
     void SendMapToCreator()
@@ -36,4 +50,10 @@ public class MapManager : MonoBehaviour
             Debug.LogError("MapRouteCalculatorが見つかりません。シーンに配置してください。");
         }
     }
+
+    public char[,] GetMapData()
+    {
+        return map;
+    }
+
 }

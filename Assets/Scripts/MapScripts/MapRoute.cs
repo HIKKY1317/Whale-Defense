@@ -12,23 +12,6 @@ public class MapRoute : MonoBehaviour
     {
         ClearOldRoute();
         route = receivedRoute;
-        DisplayRoute();
-    }
-
-    private void DisplayRoute()
-    {
-        if (routePrefab == null)
-        {
-            Debug.LogError("Routeプレハブが設定されていません。");
-            return;
-        }
-
-        foreach (var point in route)
-        {
-            Vector3 position = new Vector3(point.x, 0, point.y);
-            GameObject routeObj = Instantiate(routePrefab, position, Quaternion.identity);
-            instantiatedRoutes.Add(routeObj);
-        }
     }
 
     private void ClearOldRoute()
@@ -38,5 +21,10 @@ public class MapRoute : MonoBehaviour
             Destroy(obj);
         }
         instantiatedRoutes.Clear();
+    }
+
+    public List<Vector2Int> GetRoute()
+    {
+        return route;
     }
 }
