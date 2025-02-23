@@ -3,9 +3,9 @@ using UnityEngine;
 public class MapPlacement : MonoBehaviour
 {
     private MapManager mapManager;
-
     private MapPathChecker mapPathChecker;
     private PlayerAttributes playerAttributes;
+    private TarotPrefabSelector tarotPrefabSelector;
 
     void Start()
     {
@@ -26,6 +26,12 @@ public class MapPlacement : MonoBehaviour
         {
             Debug.LogError("");
         }
+
+        tarotPrefabSelector = FindFirstObjectByType<TarotPrefabSelector>();
+        if (tarotPrefabSelector == null)
+        {
+            Debug.LogError("");
+        }
     }
 
     void Update()
@@ -36,10 +42,8 @@ public class MapPlacement : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Vector3 hitPosition = hit.point;
-
                 int x = Mathf.RoundToInt(hitPosition.x);
                 int z = Mathf.RoundToInt(hitPosition.z);
-
                 UpdateMapData(x, z);
             }
         }
@@ -47,7 +51,7 @@ public class MapPlacement : MonoBehaviour
 
     void UpdateMapData(int x, int z)
     {
-        if (mapManager != null)
+        if (mapManager != null && tarotPrefabSelector != null)
         {
             char[,] map = mapManager.GetMapData();
 
@@ -63,12 +67,13 @@ public class MapPlacement : MonoBehaviour
                 {
                     if (!mapPathChecker.BlocksPath(x, z))
                     {
-                        if (playerAttributes.CanAfford(20))
+                        int tarotCost = tarotPrefabSelector.selectedTarotCost;
+                        if (playerAttributes.CanAfford(tarotCost))
                         {
                             map[x, z] = 'T';
                             mapManager.SetMapData(map);
-                            playerAttributes.SpendMoney(20);
-                            Debug.Log($"Map updated at ({x}, {z})");
+                            playerAttributes.SpendMoney(tarotCost);
+                            Debug.Log("");
                         }
                         else
                         {
