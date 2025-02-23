@@ -189,7 +189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tarot
+  m_Text: Turret
 --- !u!222 &200529026
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 505375737}
   - component: {fileID: 505375736}
   m_Layer: 0
-  m_Name: TarotManager
+  m_Name: TurretManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -524,9 +524,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020211d647f6604fb5c3ed05a0dd0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniTarotPrefab: {fileID: 2587836542152999230, guid: 9ddc53dded6d91445aadeb15942a30aa, type: 3}
-  tarotPrefab: {fileID: 2587836542152999230, guid: 67d41aeb371c9f54c8ec9e01465b3c8f, type: 3}
-  largeTarotPrefab: {fileID: 2587836542152999230, guid: 2bf111b16693de44f984426de131d023, type: 3}
+  miniTurretPrefab: {fileID: 2587836542152999230, guid: 9ddc53dded6d91445aadeb15942a30aa, type: 3}
+  turretPrefab: {fileID: 2587836542152999230, guid: 67d41aeb371c9f54c8ec9e01465b3c8f, type: 3}
+  largeTurretPrefab: {fileID: 2587836542152999230, guid: 2bf111b16693de44f984426de131d023, type: 3}
+  miniTurretCost: 10
+  turretCost: 20
+  largeTurretCost: 30
 --- !u!4 &588779322
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,7 +1228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LargeTarot
+  m_Text: LargeTurret
 --- !u!222 &1314045112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1247,7 +1250,7 @@ GameObject:
   - component: {fileID: 1315938893}
   - component: {fileID: 1315938892}
   m_Layer: 5
-  m_Name: LargeTarotButton
+  m_Name: LargeTurretButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1318,8 +1321,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 588779321}
-        m_TargetAssemblyTypeName: TarotPrefabSelector, Assembly-CSharp
-        m_MethodName: SelectLargeTarot
+        m_TargetAssemblyTypeName: TurretPrefabSelector, Assembly-CSharp
+        m_MethodName: SelectLargeTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1592,7 +1595,7 @@ GameObject:
   - component: {fileID: 1752267769}
   - component: {fileID: 1752267768}
   m_Layer: 5
-  m_Name: TarotButton
+  m_Name: TurretButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,8 +1666,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 588779321}
-        m_TargetAssemblyTypeName: TarotPrefabSelector, Assembly-CSharp
-        m_MethodName: SelectTarot
+        m_TargetAssemblyTypeName: TurretPrefabSelector, Assembly-CSharp
+        m_MethodName: SelectTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1804,7 +1807,7 @@ GameObject:
   - component: {fileID: 1781350930}
   - component: {fileID: 1781350929}
   m_Layer: 5
-  m_Name: MiniTarotButton
+  m_Name: MiniTurretButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1875,8 +1878,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 588779321}
-        m_TargetAssemblyTypeName: TarotPrefabSelector, Assembly-CSharp
-        m_MethodName: SelectMiniTarot
+        m_TargetAssemblyTypeName: TurretPrefabSelector, Assembly-CSharp
+        m_MethodName: SelectMiniTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1994,7 +1997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MiniTarot
+  m_Text: MiniTurret
 --- !u!222 &1819889557
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2080,7 +2083,7 @@ MonoBehaviour:
   housePrefab: {fileID: 5237271079495445428, guid: b74237dbce565f544854574f00e819fa, type: 3}
   spawnerPrefab: {fileID: 3696587930203854592, guid: e573c84c451b05a4e8da162f700e7e2a, type: 3}
   placementPrefab: {fileID: 3682626291379133041, guid: 26a5cde592d0f774e9ff4c0723389ad9, type: 3}
-  tarotPrefab: {fileID: 2587836542152999230, guid: 67d41aeb371c9f54c8ec9e01465b3c8f, type: 3}
+  turretPrefab: {fileID: 0}
 --- !u!4 &1913031324
 Transform:
   m_ObjectHideFlags: 0
