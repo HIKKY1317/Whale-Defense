@@ -1,6 +1,6 @@
 Wave:1
-クジラ:1
+Whale:1
 Wave:2
-雑魚クジラ:2
+WeakWhale:2
 Wave:3
-強くじら:2
+StrongWhale:2

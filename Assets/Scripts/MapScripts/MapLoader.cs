@@ -78,7 +78,6 @@ public class MapLoader : MonoBehaviour
             Debug.LogError("");
         }
     }
-
     void AdjustCameraPosition()
     {
         if (map == null) return;
@@ -101,8 +100,10 @@ public class MapLoader : MonoBehaviour
         float requiredHeightForWidth = (mapWidth / 2f) / Mathf.Tan(fovInRadians / 2f);
         float requiredHeightForHeight = (mapHeight / (2f * aspectRatio)) / Mathf.Tan(fovInRadians / 2f);
 
-        float yPos = Mathf.Max(requiredHeightForWidth, requiredHeightForHeight);
+        float extraMargin = 2.0f;
+        float yPos = Mathf.Max(requiredHeightForWidth, requiredHeightForHeight) + extraMargin;
 
         mainCamera.transform.position = new Vector3(xPos, yPos, zPos);
     }
+
 }

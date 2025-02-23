@@ -10,7 +10,7 @@ public class DisplayMoney : MonoBehaviour
     {
         if (playerAttributes != null && moneyText != null)
         {
-            moneyText.text = "Š‹à: " + playerAttributes.GetMoney() + "‰~";
+            moneyText.text = "Money: " + playerAttributes.GetMoney();
         }
     }
 }

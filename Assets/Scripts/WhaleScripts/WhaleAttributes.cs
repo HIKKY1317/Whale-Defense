@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WhaleAttributes : MonoBehaviour
 {
-    public string whaleName = "ÉNÉWÉâ";
+    public string whaleName = "Whale";
     public int maxHp = 200;
     public int hp = 200;
     public float swimSpeed = 2.0f;

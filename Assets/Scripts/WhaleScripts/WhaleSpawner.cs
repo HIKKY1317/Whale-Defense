@@ -52,13 +52,13 @@ public class WhaleSpawner : MonoBehaviour
                 {
                     switch (parts[0].Trim())
                     {
-                        case "クジラ":
+                        case "Whale":
                             currentWaveData[whalePrefab] = count;
                             break;
-                        case "雑魚クジラ":
+                        case "WeakWhale":
                             currentWaveData[weakWhalePrefab] = count;
                             break;
-                        case "強くじら":
+                        case "StrongWhale":
                             currentWaveData[strongWhalePrefab] = count;
                             break;
                     }
