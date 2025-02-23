@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TarotPrefabSelector : MonoBehaviour
 {
@@ -9,6 +8,13 @@ public class TarotPrefabSelector : MonoBehaviour
 
     private MapCreator mapCreator;
 
+    public int miniTarotCost = 10;
+    public int tarotCost = 20;
+    public int largeTarotCost = 30;
+
+    public GameObject selectedTarotPrefab { get; private set; }
+    public int selectedTarotCost { get; private set; }
+
     void Start()
     {
         mapCreator = FindFirstObjectByType<MapCreator>();
@@ -16,6 +22,8 @@ public class TarotPrefabSelector : MonoBehaviour
         {
             Debug.LogError("");
         }
+
+        SelectTarot();
     }
 
     public void SelectMiniTarot()
@@ -23,6 +31,8 @@ public class TarotPrefabSelector : MonoBehaviour
         if (mapCreator != null)
         {
             mapCreator.tarotPrefab = miniTarotPrefab;
+            selectedTarotPrefab = miniTarotPrefab;
+            selectedTarotCost = miniTarotCost;
         }
     }
 
@@ -31,6 +41,8 @@ public class TarotPrefabSelector : MonoBehaviour
         if (mapCreator != null)
         {
             mapCreator.tarotPrefab = tarotPrefab;
+            selectedTarotPrefab = tarotPrefab;
+            selectedTarotCost = tarotCost;
         }
     }
 
@@ -39,6 +51,8 @@ public class TarotPrefabSelector : MonoBehaviour
         if (mapCreator != null)
         {
             mapCreator.tarotPrefab = largeTarotPrefab;
+            selectedTarotPrefab = largeTarotPrefab;
+            selectedTarotCost = largeTarotCost;
         }
     }
 }
