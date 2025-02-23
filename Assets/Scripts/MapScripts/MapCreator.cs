@@ -28,12 +28,12 @@ public class MapCreator : MonoBehaviour
         mapPathChecker = FindFirstObjectByType<MapPathChecker>();
         if (mapPathChecker == null)
         {
-            Debug.LogError("MapPathCheckerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
 
         if (map == null)
         {
-            Debug.LogError("マップデータが設定されていません。");
+            Debug.LogError("");
             return;
         }
 

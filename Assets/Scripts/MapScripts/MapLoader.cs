@@ -17,28 +17,28 @@ public class MapLoader : MonoBehaviour
         fileName = PlayerPrefs.GetString("CurrentStage", "Stage1");
         if (string.IsNullOrEmpty(fileName))
         {
-            Debug.LogError("ファイル名が設定されていません");
+            Debug.LogError("");
             return;
         }
 
         TextAsset textAsset = Resources.Load<TextAsset>(fileName);
         if (textAsset == null)
         {
-            Debug.LogError("ファイルが見つかりません: " + fileName);
+            Debug.LogError("");
             return;
         }
 
         string[] lines = textAsset.text.Split('\n');
         if (lines.Length < 1)
         {
-            Debug.LogError("マップデータが不正です");
+            Debug.LogError("");
             return;
         }
 
         string[] sizeInfo = lines[0].Trim().Split(' ');
         if (sizeInfo.Length < 2 || !int.TryParse(sizeInfo[0], out int rows) || !int.TryParse(sizeInfo[1], out int cols))
         {
-            Debug.LogError("マップサイズの指定が不正です");
+            Debug.LogError("");
             return;
         }
 
@@ -75,7 +75,7 @@ public class MapLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("MapManagerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 

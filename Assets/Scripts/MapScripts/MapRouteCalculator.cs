@@ -37,7 +37,7 @@ public class MapRouteCalculator : MonoBehaviour
 
         if (start.x == -1 || goal.x == -1)
         {
-            Debug.LogError("スタートまたはゴールが見つかりません。");
+            Debug.LogError("");
             return;
         }
 
@@ -76,7 +76,7 @@ public class MapRouteCalculator : MonoBehaviour
 
         if (!cameFrom.ContainsKey(goal))
         {
-            Debug.LogError("ゴールに到達できません。");
+            Debug.LogError("");
             return;
         }
 
@@ -113,7 +113,7 @@ public class MapRouteCalculator : MonoBehaviour
         }
         else
         {
-            Debug.LogError("MapRouteが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 }

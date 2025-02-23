@@ -12,19 +12,19 @@ public class MapPlacement : MonoBehaviour
         mapPathChecker = FindFirstObjectByType<MapPathChecker>();
         if (mapPathChecker == null)
         {
-            Debug.LogError("MapPathCheckerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
 
         mapManager = FindFirstObjectByType<MapManager>();
         if (mapManager == null)
         {
-            Debug.LogError("MapManagerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
 
         playerAttributes = FindFirstObjectByType<PlayerAttributes>();
         if (playerAttributes == null)
         {
-            Debug.LogError("PlayerAttributesが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 
@@ -53,7 +53,7 @@ public class MapPlacement : MonoBehaviour
 
             if (map == null)
             {
-                Debug.LogError("Mapデータが設定されていません。");
+                Debug.LogError("");
                 return;
             }
 
@@ -72,22 +72,22 @@ public class MapPlacement : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("お金が足りません");
+                            Debug.Log("");
                         }
                     }
                     else
                     {
-                        Debug.Log($"座標 ({x}, {z}) は変更できません（現在: {map[x, z]}）");
+                        Debug.Log("");
                     }
                 }
                 else
                 {
-                    Debug.Log($"座標 ({x}, {z}) は変更できません（現在: {map[x, z]}）");
+                    Debug.Log("");
                 }
             }
             else
             {
-                Debug.LogWarning($"座標 ({x}, {z}) はマップ範囲外です。");
+                Debug.LogWarning("");
             }
         }
     }
