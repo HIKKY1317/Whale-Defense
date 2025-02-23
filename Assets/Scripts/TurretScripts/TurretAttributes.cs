@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TarotAttributes : MonoBehaviour
+public class TurretAttributes : MonoBehaviour
 {
     public int hp = 100;
     public float attackSpeed = 1.0f;

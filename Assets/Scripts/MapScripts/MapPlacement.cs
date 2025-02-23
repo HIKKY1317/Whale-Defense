@@ -5,7 +5,7 @@ public class MapPlacement : MonoBehaviour
     private MapManager mapManager;
     private MapPathChecker mapPathChecker;
     private PlayerAttributes playerAttributes;
-    private TarotPrefabSelector tarotPrefabSelector;
+    private TurretPrefabSelector turretPrefabSelector;
 
     void Start()
     {
@@ -27,8 +27,8 @@ public class MapPlacement : MonoBehaviour
             Debug.LogError("");
         }
 
-        tarotPrefabSelector = FindFirstObjectByType<TarotPrefabSelector>();
-        if (tarotPrefabSelector == null)
+        turretPrefabSelector = FindFirstObjectByType<TurretPrefabSelector>();
+        if (turretPrefabSelector == null)
         {
             Debug.LogError("");
         }
@@ -51,7 +51,7 @@ public class MapPlacement : MonoBehaviour
 
     void UpdateMapData(int x, int z)
     {
-        if (mapManager != null && tarotPrefabSelector != null)
+        if (mapManager != null && turretPrefabSelector != null)
         {
             char[,] map = mapManager.GetMapData();
 
@@ -67,12 +67,12 @@ public class MapPlacement : MonoBehaviour
                 {
                     if (!mapPathChecker.BlocksPath(x, z))
                     {
-                        int tarotCost = tarotPrefabSelector.selectedTarotCost;
-                        if (playerAttributes.CanAfford(tarotCost))
+                        int turretCost = turretPrefabSelector.selectedTurretCost;
+                        if (playerAttributes.CanAfford(turretCost))
                         {
                             map[x, z] = 'T';
                             mapManager.SetMapData(map);
-                            playerAttributes.SpendMoney(tarotCost);
+                            playerAttributes.SpendMoney(turretCost);
                             Debug.Log("");
                         }
                         else

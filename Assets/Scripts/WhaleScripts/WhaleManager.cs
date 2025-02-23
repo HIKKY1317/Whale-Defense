@@ -26,7 +26,7 @@ public class WhaleManager : MonoBehaviour
 
     GameObject FindNearestTarget(WhaleAttributes whale)
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Tarot");
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Turret");
         GameObject nearest = null;
         float minDistance = whale.attackRange;
 

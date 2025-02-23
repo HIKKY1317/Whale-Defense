@@ -37,10 +37,10 @@ public class WhaleBulletController : MonoBehaviour
     {
         if (target != null)
         {
-            TarotAttributes tarotAttributes = target.GetComponent<TarotAttributes>();
-            if (tarotAttributes != null)
+            TurretAttributes turretAttributes = target.GetComponent<TurretAttributes>();
+            if (turretAttributes != null)
             {
-                tarotAttributes.TakeDamage(attackPower);
+                turretAttributes.TakeDamage(attackPower);
             }
         }
     }

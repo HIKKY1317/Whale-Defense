@@ -7,7 +7,7 @@ public class MapCreator : MonoBehaviour
     public GameObject housePrefab;
     public GameObject spawnerPrefab;
     public GameObject placementPrefab;
-    public GameObject tarotPrefab;
+    public GameObject turretPrefab;
 
     private char[,] map;
     private GameObject mapContainer;
@@ -55,7 +55,7 @@ public class MapCreator : MonoBehaviour
                 {
                     if (!preservedObjects.ContainsKey(positionKey))
                     {
-                        obj = Instantiate(map[i, j] == 'H' ? housePrefab : map[i, j] == 'S' ? spawnerPrefab : tarotPrefab, position, Quaternion.identity);
+                        obj = Instantiate(map[i, j] == 'H' ? housePrefab : map[i, j] == 'S' ? spawnerPrefab : turretPrefab, position, Quaternion.identity);
                         preservedObjects[positionKey] = obj;
                     }
                     else
