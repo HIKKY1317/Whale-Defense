@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour
         }
         else
         {
-            Debug.Log("‚¨‹à‚ª‘«‚è‚Ü‚¹‚ñ");
+            Debug.Log("");
         }
     }
 

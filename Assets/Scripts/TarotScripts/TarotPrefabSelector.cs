@@ -14,7 +14,7 @@ public class TarotPrefabSelector : MonoBehaviour
         mapCreator = FindFirstObjectByType<MapCreator>();
         if (mapCreator == null)
         {
-            Debug.LogError("MapCreator‚ªƒV[ƒ““à‚ÉŒ©‚Â‚©‚è‚Ü‚¹‚ñB");
+            Debug.LogError("");
         }
     }
 

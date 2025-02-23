@@ -16,7 +16,7 @@ public class TarotAttributes : MonoBehaviour
         mapManager = FindFirstObjectByType<MapManager>();
         if (mapManager == null)
         {
-            Debug.LogError("MapManagerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 

@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("MapPathCheckerが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 
@@ -34,7 +34,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("MapCreatorが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 
@@ -47,7 +47,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("MapRouteCalculatorが見つかりません。シーンに配置してください。");
+            Debug.LogError("");
         }
     }
 
