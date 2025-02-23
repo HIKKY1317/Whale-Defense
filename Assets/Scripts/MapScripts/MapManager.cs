@@ -55,5 +55,4 @@ public class MapManager : MonoBehaviour
     {
         return map;
     }
-
 }

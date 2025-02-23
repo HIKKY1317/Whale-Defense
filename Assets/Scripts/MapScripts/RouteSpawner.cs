@@ -4,7 +4,7 @@ using UnityEngine;
 public class RouteSpawner : MonoBehaviour
 {
     public GameObject routePrefab;
-    public float spawnInterval = 0.1f;
+    public float spawnInterval = 4f;
 
     void Start()
     {

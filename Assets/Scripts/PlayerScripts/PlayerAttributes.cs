@@ -10,6 +10,7 @@ public class PlayerAttributes : MonoBehaviour
     void Start()
     {
         gameOverController = FindFirstObjectByType<GameOverController>();
+        money = PlayerPrefs.GetInt("Money", 100);
     }
 
     public void AddMoney(int amount)

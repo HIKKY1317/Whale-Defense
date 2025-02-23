@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1637699967833674854}
   - component: {fileID: 1192037778751222889}
   m_Layer: 7
-  m_Name: "WeekWhale(\u4EEE)"
+  m_Name: "WeakWhale(\u4EEE)"
   m_TagString: Whale
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -23,6 +23,8 @@ public class MapCreator : MonoBehaviour
 
     void GenerateMap()
     {
+        int rows = map.GetLength(0);
+        int cols = map.GetLength(1);
         mapPathChecker = FindFirstObjectByType<MapPathChecker>();
         if (mapPathChecker == null)
         {
@@ -37,9 +39,9 @@ public class MapCreator : MonoBehaviour
 
         ResetMap();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < cols; j++)
             {
                 Vector2Int positionKey = new Vector2Int(i, j);
                 Vector3 position = new Vector3(i, 0, j);

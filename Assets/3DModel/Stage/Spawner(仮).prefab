@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   routePrefab: {fileID: 3104231617210499856, guid: 0323d123df1f8634f8051bbb38266a48, type: 3}
-  spawnInterval: 0.1
+  spawnInterval: 4
 --- !u!114 &-6501611547785784277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,8 +114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f001aa490dba704d96fc10841ccae51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whalePrefab: {fileID: 6352431415872591440, guid: ec82b1661b5db53428c2616505edde55, type: 3}
-  initialWhalesPerWave: 1
-  waveGrowth: 1
+  weakWhalePrefab: {fileID: 6352431415872591440, guid: 51d48e7ee9bcb0248b1845045525d5f5, type: 3}
+  whalePrefab: {fileID: 6352431415872591440, guid: 22730b6e6f6634c4c9e74af4fdf396f8, type: 3}
+  strongWhalePrefab: {fileID: 6352431415872591440, guid: ec82b1661b5db53428c2616505edde55, type: 3}
+  gameClearText: {fileID: 0}
   spawnDelay: 0.05
   waveInterval: 10
+  fileName: Level1
