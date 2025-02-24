@@ -28,12 +28,12 @@ public class MapCreator : MonoBehaviour
         mapPathChecker = FindFirstObjectByType<MapPathChecker>();
         if (mapPathChecker == null)
         {
-            Debug.LogError("");
+            Debug.LogError("MapPathChecker not found.");
         }
 
         if (map == null)
         {
-            Debug.LogError("");
+            Debug.LogError("Map data is null.");
             return;
         }
 
@@ -77,7 +77,6 @@ public class MapCreator : MonoBehaviour
                     }
                 }
 
-
                 if (obj != null)
                 {
                     obj.transform.parent = mapContainer.transform;
@@ -100,7 +99,7 @@ public class MapCreator : MonoBehaviour
         {
             Vector2Int positionKey = new Vector2Int((int)child.position.x, (int)child.position.z);
 
-            if (!preservedObjects.ContainsKey(positionKey))
+            if (!preservedObjects.ContainsKey(positionKey) && child.gameObject.tag != "TurretBase")
             {
                 childrenToDestroy.Add(child);
             }

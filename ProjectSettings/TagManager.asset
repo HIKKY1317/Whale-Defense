@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Whale
   - Turret
+  - TurretBase
+  - TurrotBase
+  - Tarot
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DraggedTurret
   - Water
   - UI
   - UFO
