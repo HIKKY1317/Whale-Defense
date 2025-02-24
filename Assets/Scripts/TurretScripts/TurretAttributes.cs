@@ -33,16 +33,9 @@ public class TurretAttributes : MonoBehaviour
                 mapManager.SetMapData(map);
                 Destroy(transform.parent.gameObject);
             }
-            else
-            {
-                char[,] map = mapManager.GetMapData();
-                Vector2Int gridPos = GetGridPosition();
-                map[gridPos.x, gridPos.y] = '.';
-                mapManager.SetMapData(map);
-                Destroy(gameObject);
-            }
         }
     }
+
 
     public void UpdateAttackCooldown(float deltaTime)
     {
@@ -61,8 +54,20 @@ public class TurretAttributes : MonoBehaviour
 
     private Vector2Int GetGridPosition()
     {
-        int x = Mathf.FloorToInt(transform.position.x);
-        int z = Mathf.FloorToInt(transform.position.z);
-        return new Vector2Int(x, z);
+        TurretDragDrop turretDragDrop = FindFirstObjectByType<TurretDragDrop>();
+
+        if (turretDragDrop != null && turretDragDrop.GetSelectedTurret() == transform.parent.gameObject)
+        {
+            Vector3 initPos = turretDragDrop.GetInitialPosition();
+            return new Vector2Int(
+                Mathf.FloorToInt(initPos.x),
+                Mathf.FloorToInt(initPos.z)
+            );
+        }
+
+        return new Vector2Int(
+            Mathf.FloorToInt(transform.position.x),
+            Mathf.FloorToInt(transform.position.z)
+        );
     }
 }
