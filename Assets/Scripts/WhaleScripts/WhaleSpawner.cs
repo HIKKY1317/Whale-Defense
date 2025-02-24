@@ -95,7 +95,8 @@ public class WhaleSpawner : MonoBehaviour
             }
         }
 
-        gameClearText.text = "GameClear!";
+        PlayerAttributes player = FindFirstObjectByType<PlayerAttributes>();
+        if (player.hp > 0) gameClearText.text = "GameClear!";
     }
 
     public void OnWhaleDestroyed()
