@@ -14,7 +14,6 @@ public class PauseManager : MonoBehaviour
 
     void Update()
     {
-        // EscキーでポーズON/OFF
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
