@@ -8,8 +8,8 @@ public class WhaleAttributes : MonoBehaviour
     public int maxHp = 200;
     public int hp = 200;
     public float swimSpeed = 2.0f;
-    public int attackPower = 20;
-    public float attackRange = 10.0f;
+    public int attackPower = 5;
+    public float attackRange = 1.0f;
     public float attackSpeed = 5.0f;
     public int rewardMoney = 50;
 
