@@ -267,6 +267,9 @@ GameObject:
   - component: {fileID: 3267083945728024888}
   - component: {fileID: 1637699967833674854}
   - component: {fileID: 1192037778751222889}
+  - component: {fileID: 8919757047747035021}
+  - component: {fileID: 6442647766087797184}
+  - component: {fileID: 174505467133311141}
   m_Layer: 7
   m_Name: "StrongWhale(\u4EEE)"
   m_TagString: Whale
@@ -370,13 +373,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whaleName: "\u5F37\u304F\u3058\u3089"
-  maxHp: 400
-  hp: 400
+  maxHp: 200
+  hp: 200
   swimSpeed: 0.5
-  attackPower: 40
-  attackRange: 20
-  attackSpeed: 0.5
-  rewardMoney: 100
+  attackPower: 10
+  attackRange: 10
+  attackSpeed: 0.025
+  rewardMoney: 25
 --- !u!114 &1192037778751222889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +397,40 @@ MonoBehaviour:
   hpBarForeground: {fileID: 4024164605897275491}
   heightAboveWhale: 2
   imageSize: {x: 1, y: 0.2}
+--- !u!114 &8919757047747035021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352431415872591440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d64139e1c3aab4c817bfea2a4d7f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6442647766087797184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352431415872591440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3e68e643b3c03408f234e0da5f94cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &174505467133311141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352431415872591440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6f8ae4a9d13ab4fbf933896d8d74a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7617768810783061490, guid: d7b5a2fe342de5446995bb5e65e7a5c2, type: 3}

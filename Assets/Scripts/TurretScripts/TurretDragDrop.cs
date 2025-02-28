@@ -43,8 +43,8 @@ public class TurretDragDrop : MonoBehaviour
                 if (IsWithinBounds(x, z) && mapManager.GetMapData()[x, z] == 'T')
                 {
                     selectedTurret = hit.collider.transform.parent.gameObject;
-                    initialPosition = selectedTurret.transform.position;
                     SetLayerRecursively(selectedTurret, "DraggedTurret");
+                    initialPosition = selectedTurret.transform.position;
                 }
             }
         }

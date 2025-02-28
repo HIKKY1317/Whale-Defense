@@ -8,31 +8,32 @@ public class TurretManager : MonoBehaviour
 
     void Update()
     {
-        foreach (TurretAttributes turret in Object.FindObjectsByType<TurretAttributes>(FindObjectsSortMode.None))
+        foreach (TurretAttackManager turretAttackManager in Object.FindObjectsByType<TurretAttackManager>(FindObjectsSortMode.None))
         {
-            turret.UpdateAttackCooldown(Time.deltaTime);
+            turretAttackManager.UpdateAttackCooldown(Time.deltaTime);
 
-            if (turret.CanAttack())
+            if (turretAttackManager.CanAttack())
             {
-                GameObject target = FindNearestTarget(turret);
+                TurretAttributes turretAttributes = turretAttackManager.gameObject.GetComponent<TurretAttributes>();
+                GameObject target = FindNearestTarget(turretAttributes);
                 if (target != null)
                 {
-                    Shoot(turret, target);
-                    turret.ResetAttackCooldown();
+                    Shoot(turretAttributes, target);
+                    turretAttackManager.ResetAttackCooldown();
                 }
             }
         }
     }
 
-    GameObject FindNearestTarget(TurretAttributes turret)
+    private GameObject FindNearestTarget(TurretAttributes turretAttributes)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Whale");
         GameObject nearest = null;
-        float minDistance = turret.attackRange;
+        float minDistance = turretAttributes.GetAttackRange();
 
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector3.Distance(turret.transform.position, enemy.transform.position);
+            float distance = Vector3.Distance(turretAttributes.gameObject.transform.position, enemy.transform.position);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -42,13 +43,13 @@ public class TurretManager : MonoBehaviour
         return nearest;
     }
 
-    void Shoot(TurretAttributes turret, GameObject target)
+    private void Shoot(TurretAttributes turretAttributes, GameObject target)
     {
-        GameObject bullet = Instantiate(bulletPrefab, turret.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, turretAttributes.gameObject.transform.position, Quaternion.identity);
         BulletController bulletController = bullet.GetComponent<BulletController>();
         if (bulletController != null)
         {
-            bulletController.SetTarget(target, turret.attackPower);
+            bulletController.SetTarget(target, turretAttributes.GetAttackPower());
         }
     }
 }

@@ -37,10 +37,10 @@ public class BulletController : MonoBehaviour
     {
         if (target != null)
         {
-            WhaleAttributes whaleAttributes = target.GetComponent<WhaleAttributes>();
-            if (whaleAttributes != null)
+            WhaleHpManager whaleHpManager = target.GetComponent<WhaleHpManager>();
+            if (whaleHpManager != null)
             {
-                whaleAttributes.TakeDamage(attackPower);
+                whaleHpManager.TakeDamage(attackPower);
             }
         }
     }

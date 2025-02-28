@@ -8,9 +8,9 @@ public class TurretPrefabSelector : MonoBehaviour
 
     private MapCreator mapCreator;
 
-    public int miniTurretCost = 10;
-    public int turretCost = 20;
-    public int largeTurretCost = 30;
+    public int miniTurretCost = 20;
+    public int turretCost = 40;
+    public int largeTurretCost = 60;
 
     public GameObject selectedTurretPrefab { get; private set; }
     public int selectedTurretCost { get; private set; }
@@ -20,7 +20,7 @@ public class TurretPrefabSelector : MonoBehaviour
         mapCreator = FindFirstObjectByType<MapCreator>();
         if (mapCreator == null)
         {
-            Debug.LogError("");
+            Debug.LogError("mapCreator not Found");
         }
 
         SelectTurret();

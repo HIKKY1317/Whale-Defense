@@ -100,12 +100,12 @@ public class StageSwitcher : MonoBehaviour
         {
             case 1:
                 level = 1;
-                money = 100;
+                money = 300;
                 difficulty = 1;
                 break;
             case 2:
                 level = 2;
-                money = 80;
+                money = 240;
                 difficulty = 1;
                 break;
         }

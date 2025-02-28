@@ -21,7 +21,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("");
+            Debug.LogError("MapPathChecker not found. Please ensure the MapPathChecker component is present in the scene.");
         }
     }
 
@@ -34,7 +34,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("");
+            Debug.LogError("MapCreator not found. Please ensure the MapCreator component is present in the scene.");
         }
     }
 
@@ -47,7 +47,7 @@ public class MapManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("");
+            Debug.LogError("MapRouteCalculator not found. Please ensure the MapRouteCalculator component is present in the scene.");
         }
     }
 

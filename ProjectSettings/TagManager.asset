@@ -7,8 +7,6 @@ TagManager:
   - Whale
   - Turret
   - TurretBase
-  - TurrotBase
-  - Tarot
   layers:
   - Default
   - TransparentFX

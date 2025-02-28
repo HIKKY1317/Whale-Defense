@@ -9,65 +9,43 @@ public class TurretAttributes : MonoBehaviour
     public int attackPower = 10;
     public float attackRange = 5.0f;
 
-    private float attackCooldown = 0f;
-    private MapManager mapManager;
-    void Start()
+    public int GetHp()
     {
-        mapManager = FindFirstObjectByType<MapManager>();
-        if (mapManager == null)
-        {
-            Debug.LogError("");
-        }
+        return hp;
     }
 
-    public void TakeDamage(int damage)
+    public float GetAttackSpeed()
     {
-        hp -= damage;
-        if (hp <= 0)
-        {
-            if (transform.parent != null)
-            {
-                char[,] map = mapManager.GetMapData();
-                Vector2Int gridPos = GetGridPosition();
-                map[gridPos.x, gridPos.y] = '.';
-                mapManager.SetMapData(map);
-                Destroy(transform.parent.gameObject);
-            }
-        }
+        return attackSpeed;
     }
 
-
-    public void UpdateAttackCooldown(float deltaTime)
+    public int GetAttackPower()
     {
-        attackCooldown -= deltaTime;
+        return attackPower;
     }
 
-    public bool CanAttack()
+    public float GetAttackRange()
     {
-        return attackCooldown <= 0f;
+        return attackRange; 
     }
 
-    public void ResetAttackCooldown()
+    public void SetHp(int hp)
     {
-        attackCooldown = 1f / attackSpeed;
+        this.hp = hp;
     }
 
-    private Vector2Int GetGridPosition()
+    public void SetAttackSpeed(float attackSpeed)
     {
-        TurretDragDrop turretDragDrop = FindFirstObjectByType<TurretDragDrop>();
+        this.attackSpeed = attackSpeed;
+    }
 
-        if (turretDragDrop != null && turretDragDrop.GetSelectedTurret() == transform.parent.gameObject)
-        {
-            Vector3 initPos = turretDragDrop.GetInitialPosition();
-            return new Vector2Int(
-                Mathf.FloorToInt(initPos.x),
-                Mathf.FloorToInt(initPos.z)
-            );
-        }
+    public void SetAttackPower(int  attackPower)
+    {
+        this.attackPower = attackPower;
+    }
 
-        return new Vector2Int(
-            Mathf.FloorToInt(transform.position.x),
-            Mathf.FloorToInt(transform.position.z)
-        );
+    public void SetAttackRange(float attackRange)
+    {
+        this.attackRange = attackRange;
     }
 }

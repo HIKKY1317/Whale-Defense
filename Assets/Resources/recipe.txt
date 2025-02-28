@@ -1,3 +1,4 @@
 MiniTurret+MiniTurret=SpeedTurret
 Turret+LargeTurret=SniperTurret
 LargeTurret+LargeTurret=GiantTurret
+SpeedTurret+SpeedTurret=SniperTurret

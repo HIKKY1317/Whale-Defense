@@ -228,6 +228,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2033087835274612585}
   - component: {fileID: 5224247925770811068}
+  - component: {fileID: 8733948624073555403}
+  - component: {fileID: 8638801339110024709}
+  - component: {fileID: 1668750047690811462}
   m_Layer: 0
   m_Name: BalletSpawner
   m_TagString: Turret
@@ -262,10 +265,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe08801be52ae414ba75fe8be91b2f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 1000
-  attackSpeed: 1
+  hp: 2000
+  attackSpeed: 0.1
   attackPower: 10
   attackRange: 5
+--- !u!114 &8733948624073555403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713135223351123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a5d57f6c35ea24a99c0b9d7a85ff1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8638801339110024709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713135223351123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b90647e8d563348a74d9e2d1cdf726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1668750047690811462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4713135223351123740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628a9311c14304147984013b74561969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 2458575046307172823, guid: 2685e24a44e7dbe45b32e7aa9c0d79e7, type: 3}
 --- !u!1 &6308429009886012389
 GameObject:
   m_ObjectHideFlags: 0
