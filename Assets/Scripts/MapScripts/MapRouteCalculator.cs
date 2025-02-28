@@ -23,12 +23,12 @@ public class MapRouteCalculator : MonoBehaviour
         Vector2Int start = new Vector2Int(-1, -1);
         Vector2Int goal = new Vector2Int(-1, -1);
 
-        int rows = map.GetLength(0);
-        int cols = map.GetLength(1);
+        int cols = map.GetLength(0);
+        int rows = map.GetLength(1);
 
-        for (int i = 0; i < rows; i++)
+        for (int i = 0; i < cols; i++)
         {
-            for (int j = 0; j < cols; j++)
+            for (int j = 0; j < rows; j++)
             {
                 if (map[i, j] == 'S') start = new Vector2Int(i, j);
                 if (map[i, j] == 'H') goal = new Vector2Int(i, j);
@@ -37,7 +37,7 @@ public class MapRouteCalculator : MonoBehaviour
 
         if (start.x == -1 || goal.x == -1)
         {
-            Debug.LogError("");
+            Debug.LogError("Start or goal position not found in the map.");
             return;
         }
 
@@ -60,7 +60,7 @@ public class MapRouteCalculator : MonoBehaviour
             {
                 Vector2Int next = current + dir;
 
-                if (IsValidPosition(next, rows, cols) && !visited.Contains(next) && map[next.x, next.y] != '#' && map[next.x, next.y] != 'T')
+                if (IsValidPosition(next, cols, rows) && !visited.Contains(next) && map[next.x, next.y] != '#' && map[next.x, next.y] != 'T')
                 {
                     if (Mathf.Abs(dir.x) + Mathf.Abs(dir.y) == 2 && !IsValidDiagonalMove(current, next))
                     {
@@ -76,7 +76,7 @@ public class MapRouteCalculator : MonoBehaviour
 
         if (!cameFrom.ContainsKey(goal))
         {
-            Debug.LogError("");
+            Debug.LogError("No valid path found from start to goal.");
             return;
         }
 
@@ -93,9 +93,9 @@ public class MapRouteCalculator : MonoBehaviour
         SendRouteToMapRoute();
     }
 
-    private bool IsValidPosition(Vector2Int pos, int rows, int cols)
+    private bool IsValidPosition(Vector2Int pos, int cols, int rows)
     {
-        return pos.x >= 0 && pos.x < rows && pos.y >= 0 && pos.y < cols && map[pos.x, pos.y] != 'T';
+        return pos.x >= 0 && pos.x < cols && pos.y >= 0 && pos.y < rows && map[pos.x, pos.y] != 'T';
     }
 
     private bool IsValidDiagonalMove(Vector2Int current, Vector2Int next)
@@ -113,7 +113,7 @@ public class MapRouteCalculator : MonoBehaviour
         }
         else
         {
-            Debug.LogError("");
+            Debug.LogError("MapRoute component not found in the scene.");
         }
     }
 }

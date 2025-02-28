@@ -13,34 +13,83 @@ public class WhaleAttributes : MonoBehaviour
     public float attackSpeed = 5.0f;
     public int rewardMoney = 50;
 
-    private float attackCooldown = 0f;
-
-    public void TakeDamage(int damage)
+    public string GetWhaleName()
     {
-        hp -= damage;
-        if (hp <= 0)
-        {
-            PlayerAttributes player = FindFirstObjectByType<PlayerAttributes>();
-            if (player != null)
-            {
-                player.AddMoney(rewardMoney);
-            }
-            Destroy(gameObject);
-        }
+        return whaleName;
     }
 
-    public void UpdateAttackCooldown(float deltaTime)
+    public int GetMaxHp()
     {
-        attackCooldown -= deltaTime;
+        return maxHp;
     }
 
-    public bool CanAttack()
+    public int GetHp()
     {
-        return attackCooldown <= 0f;
+        return hp;
     }
 
-    public void ResetAttackCooldown()
+    public float GetSwimSpeed()
     {
-        attackCooldown = 1f / attackSpeed;
+        return swimSpeed;
+    }
+
+    public int GetAttackPower()
+    {
+        return attackPower;
+    }
+
+    public float GetAttackRange()
+    {
+        return attackRange;
+    }
+
+    public float GetAttackSpeed()
+    {
+        return attackSpeed;
+    }
+
+    public int GetRewardMoney()
+    {
+        return rewardMoney;
+    }
+
+    public void SetWhaleName(string whaleName)
+    {
+        this.whaleName = whaleName;
+    }
+
+    public void SetMaxHp(int maxHp)
+    {
+        this.maxHp = maxHp;
+    }
+
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
+    }
+
+    public void SetSwimSpeed(float swimSpeed)
+    {
+        this.swimSpeed = swimSpeed;
+    }
+
+    public void SetAttackPower(int attackPower)
+    {
+        this.attackPower = attackPower;
+    }
+
+    public void SetAttackRange(float attackRange)
+    {
+        this.attackRange = attackRange;
+    }
+
+    public void SetAttackSpeed(float attackSpeed)
+    {
+        this.attackSpeed = attackSpeed;
+    }
+
+    public void SetRewardMoney(int rewardMoney)
+    {
+        this.rewardMoney = rewardMoney;
     }
 }

@@ -8,31 +8,32 @@ public class WhaleManager : MonoBehaviour
 
     void Update()
     {
-        foreach (WhaleAttributes whale in Object.FindObjectsByType<WhaleAttributes>(FindObjectsSortMode.None))
+        foreach (WhaleAttackManager whaleAttackManager in Object.FindObjectsByType<WhaleAttackManager>(FindObjectsSortMode.None))
         {
-            whale.UpdateAttackCooldown(Time.deltaTime);
+            whaleAttackManager.UpdateAttackCooldown(Time.deltaTime);
 
-            if (whale.CanAttack())
+            if (whaleAttackManager.CanAttack())
             {
-                GameObject target = FindNearestTarget(whale);
+                WhaleAttributes whaleAttributes = whaleAttackManager.gameObject.GetComponent<WhaleAttributes>();
+                GameObject target = FindNearestTarget(whaleAttributes);
                 if (target != null)
                 {
-                    Shoot(whale, target);
-                    whale.ResetAttackCooldown();
+                    Shoot(whaleAttributes, target);
+                    whaleAttackManager.ResetAttackCooldown();
                 }
             }
         }
     }
 
-    GameObject FindNearestTarget(WhaleAttributes whale)
+    private GameObject FindNearestTarget(WhaleAttributes whaleAttributes)
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Turret");
         GameObject nearest = null;
-        float minDistance = whale.attackRange;
+        float minDistance = whaleAttributes.GetAttackRange();
 
         foreach (GameObject enemy in enemies)
         {
-            float distance = Vector3.Distance(whale.transform.position, enemy.transform.position);
+            float distance = Vector3.Distance(whaleAttributes.gameObject.transform.position, enemy.transform.position);
             if (distance < minDistance)
             {
                 minDistance = distance;
@@ -42,13 +43,13 @@ public class WhaleManager : MonoBehaviour
         return nearest;
     }
 
-    void Shoot(WhaleAttributes whale, GameObject target)
+    void Shoot(WhaleAttributes whaleAttributes, GameObject target)
     {
-        GameObject bullet = Instantiate(bulletPrefab, whale.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, whaleAttributes.gameObject.transform.position, Quaternion.identity);
         WhaleBulletController whaleBulletController = bullet.GetComponent<WhaleBulletController>();
         if (whaleBulletController != null)
         {
-            whaleBulletController.SetTarget(target, whale.attackPower);
+            whaleBulletController.SetTarget(target, whaleAttributes.GetAttackPower());
         }
     }
 }

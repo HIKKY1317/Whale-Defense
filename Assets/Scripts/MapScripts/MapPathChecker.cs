@@ -9,14 +9,14 @@ public class MapPathChecker : MonoBehaviour
     public void SetMapData(char[,] receivedMap)
     {
         map = receivedMap;
-        width = map.GetLength(0);
-        height = map.GetLength(1);
+        height = map.GetLength(0);
+        width = map.GetLength(1);
     }
 
-    public bool BlocksPath(int x, int z)
+    public bool BlocksPath(int h, int w)
     {
         char[,] tempMap = (char[,])map.Clone();
-        tempMap[x, z] = 'T';
+        tempMap[h, w] = 'T';
 
         return !IsPathAvailable(tempMap);
     }
@@ -26,9 +26,9 @@ public class MapPathChecker : MonoBehaviour
         Queue<Vector2Int> queue = new Queue<Vector2Int>();
         HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
 
-        for (int i = 0; i < width; i++)
+        for (int i = 0; i < height; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = 0; j < width; j++)
             {
                 if (tempMap[i, j] == 'S')
                 {
@@ -68,8 +68,8 @@ public class MapPathChecker : MonoBehaviour
         return false;
     }
 
-    private bool IsWithinBounds(int x, int y)
+    private bool IsWithinBounds(int h, int w)
     {
-        return x >= 0 && x < width && y >= 0 && y < height;
+        return h>= 0 && h < height && w >= 0 && w < width;
     }
 }

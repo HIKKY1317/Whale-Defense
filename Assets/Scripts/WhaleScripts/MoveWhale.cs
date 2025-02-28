@@ -12,11 +12,11 @@ public class MoveWhale : MonoBehaviour
     private float threshold = 0.2f;
     private const float SQRT_3 = 1.732f;
     private WhaleAttributes whaleAttributes;
-    private PlayerAttributes playerAttributes;
+    private PlayerHpManager playerHpManager;
 
     void Start()
     {
-        playerAttributes = FindFirstObjectByType<PlayerAttributes>();
+        playerHpManager = FindFirstObjectByType<PlayerHpManager>();
 
         whaleAttributes = GetComponent<WhaleAttributes>();
         if (whaleAttributes != null)
@@ -64,7 +64,7 @@ public class MoveWhale : MonoBehaviour
                 currentIndex++;
                 if (currentIndex >= route.Count)
                 {
-                    playerAttributes.TakeDamage(whaleAttributes.attackPower);
+                    playerHpManager.TakeDamage(whaleAttributes.attackPower);
                     Destroy(gameObject);
                 }
             }

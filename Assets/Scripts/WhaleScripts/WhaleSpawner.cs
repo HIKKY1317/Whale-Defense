@@ -9,17 +9,22 @@ public class WhaleSpawner : MonoBehaviour
     public GameObject whalePrefab;
     public GameObject strongWhalePrefab;
     public Text gameClearText;
+    public Text waveText;
     public float spawnDelay = 0.05f;
     public float waveInterval = 10f;
     public string fileName;
 
     private Queue<Dictionary<GameObject, int>> waves = new Queue<Dictionary<GameObject, int>>();
     private int remainingWhales = 0;
+    private int currentWave = 0;
+    private bool isFirstWave = true;
 
     void Start()
     {
         gameClearText = GameObject.Find("GameClearText").GetComponent<Text>();
+        waveText = GameObject.Find("WaveText").GetComponent<Text>();
         gameClearText.text = "";
+        waveText.text = "";
         LoadWaveData();
         StartCoroutine(SpawnWaveCoroutine());
     }
@@ -73,11 +78,23 @@ public class WhaleSpawner : MonoBehaviour
     {
         while (waves.Count > 0)
         {
+            currentWave++;
             Dictionary<GameObject, int> waveData = waves.Dequeue();
-            remainingWhales = 0;
 
             foreach (var kvp in waveData)
                 remainingWhales += kvp.Value;
+
+            waveText.text = "Wave: " + currentWave;
+            yield return new WaitForSeconds(1f);
+
+            if (isFirstWave)
+            {
+                waveText.text = "Prepare Phase";
+                yield return new WaitForSeconds(8f);
+                isFirstWave = false;
+            }
+
+            waveText.text = "War Time";
 
             foreach (var kvp in waveData)
             {
@@ -89,15 +106,32 @@ public class WhaleSpawner : MonoBehaviour
                 }
             }
 
-            while (remainingWhales > 0)
+            float timer = 0f;
+            while (remainingWhales > 0 && timer < 10f)
             {
-                yield return null;
+                yield return new WaitForSeconds(1f);
+                timer += 1f;
+            }
+
+            while (remainingWhales > 0 && waves.Count == 0)
+            {
+                yield return new WaitForSeconds(1f);
+                timer += 1f;
+            }
+
+            if (waves.Count == 0)
+            {
+                PlayerAttributes player = FindFirstObjectByType<PlayerAttributes>();
+                if (player.hp > 0)
+                {
+                    gameClearText.text = "GameClear!";
+                }
             }
         }
 
-        PlayerAttributes player = FindFirstObjectByType<PlayerAttributes>();
-        if (player.hp > 0) gameClearText.text = "GameClear!";
+        waveText.text = "";
     }
+
 
     public void OnWhaleDestroyed()
     {

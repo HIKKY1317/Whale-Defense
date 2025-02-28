@@ -5,29 +5,16 @@ public class PlayerAttributes : MonoBehaviour
 {
     public int money = 100;
     public int hp = 100;
-    public GameOverController gameOverController;
+    private GameOverController gameOverController;
+    private MoneyManager moneyManager;
+    private PlayerHpManager playerHpManager;
 
     void Start()
     {
         gameOverController = FindFirstObjectByType<GameOverController>();
+        moneyManager = FindFirstObjectByType<MoneyManager>();
+        playerHpManager = FindFirstObjectByType<PlayerHpManager>();
         money = PlayerPrefs.GetInt("Money", 100);
-    }
-
-    public void AddMoney(int amount)
-    {
-        money += amount;
-    }
-
-    public void SpendMoney(int amount)
-    {
-        if (money >= amount)
-        {
-            money -= amount;
-        }
-        else
-        {
-            Debug.Log("");
-        }
     }
 
     public int GetMoney()
@@ -35,18 +22,18 @@ public class PlayerAttributes : MonoBehaviour
         return money;
     }
 
-    public bool CanAfford(int amount)
+    public int GetHp()
     {
-        return money >= amount;
+        return hp;
     }
 
-    public void TakeDamage(int damage)
+    public void SetMoney(int money)
     {
-        hp -= damage;
-        if (hp <= 0)
-        {
-            hp = 0;
-            gameOverController.GameOver();
-        }
+        this.money = money;
+    }
+
+    public void SetHp(int hp)
+    {
+        this.hp = hp;
     }
 }
