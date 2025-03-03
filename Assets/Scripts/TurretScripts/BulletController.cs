@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour
         target = newTarget;
         attackPower = power;
     }
-    
+
     void DealDamage()
     {
         if (target != null)
@@ -40,7 +40,10 @@ public class BulletController : MonoBehaviour
             WhaleHpManager whaleHpManager = target.GetComponent<WhaleHpManager>();
             if (whaleHpManager != null)
             {
-                whaleHpManager.TakeDamage(attackPower);
+                float randomMultiplier = Random.Range(0.95f, 1.05f);
+                int finalDamage = Mathf.RoundToInt(attackPower * randomMultiplier);
+
+                whaleHpManager.TakeDamage(finalDamage);
             }
         }
     }
