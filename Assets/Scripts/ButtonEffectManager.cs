@@ -7,7 +7,7 @@ using System.Collections;
 public class ButtonEffectManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     private Vector3 originalScale;
-    public float hoverScale = 1.2f; // Hover時のスケール倍率
+    public float hoverScale = 1.25f; // Hover時のスケール倍率
     public float animationSpeed = 0.15f; // 拡大アニメーション速度
     public float fadeDuration = 0.7f; // フェードアウトの時間
     public string nextSceneName = "GameSelect"; // 遷移するシーン名
