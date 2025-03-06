@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weakWhalePrefab: {fileID: 6352431415872591440, guid: 51d48e7ee9bcb0248b1845045525d5f5, type: 3}
-  whalePrefab: {fileID: 6352431415872591440, guid: 22730b6e6f6634c4c9e74af4fdf396f8, type: 3}
+  whalePrefab: {fileID: 5643214508389968036, guid: baed4b7d7479b3f4ab9de967eb54de7c, type: 3}
   strongWhalePrefab: {fileID: 6352431415872591440, guid: ec82b1661b5db53428c2616505edde55, type: 3}
   gameClearText: {fileID: 0}
   waveText: {fileID: 0}
