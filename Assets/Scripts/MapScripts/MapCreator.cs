@@ -44,7 +44,7 @@ public class MapCreator : MonoBehaviour
             for (int j = 0; j < cols; j++)
             {
                 Vector2Int positionKey = new Vector2Int(i, j);
-                Vector3 position = new Vector3(i, 0, j);
+                Vector3 position = new Vector3(i, -0.1f, j);
                 GameObject obj = null;
 
                 if (map[i, j] == '#')
