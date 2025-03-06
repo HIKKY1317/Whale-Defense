@@ -360,6 +360,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   rotationSpeed: 10
+  waveSpeed: 1
+  swingCycle: 9
+  amplitude: 1.024
+  waveResponseSpeed: 100
 --- !u!114 &1637699967833674854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,8 +381,19 @@ MonoBehaviour:
   hp: 200
   swimSpeed: 0.5
   attackPower: 10
-  attackRange: 10
+  attackType: Physical
+  defense: 5
+  magicDefense: 5
   attackSpeed: 0.025
+  attackRange: 10
+  isAreaAttack: 0
+  chainTargets: 1
+  simultaneousAttacks: 1
+  criticalRate: 0.1
+  criticalDamage: 1.5
+  accuracy: 0.9
+  evasion: 0.1
+  turretElement: Fire
   rewardMoney: 25
 --- !u!114 &1192037778751222889
 MonoBehaviour:
