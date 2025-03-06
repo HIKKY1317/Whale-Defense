@@ -58,7 +58,7 @@ public class WhaleCameraController : MonoBehaviour
             cameraTransform.rotation = Quaternion.Slerp(cameraTransform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             // ある程度目標に近づいたら移動を停止
-            if (Vector3.Distance(cameraTransform.position, targetPosition) < 0.1f &&
+            if (Vector3.Distance(cameraTransform.position, targetPosition) < 0.05f &&
                 Quaternion.Angle(cameraTransform.rotation, targetRotation) < 1f)
             {
                 isMoving = false;
