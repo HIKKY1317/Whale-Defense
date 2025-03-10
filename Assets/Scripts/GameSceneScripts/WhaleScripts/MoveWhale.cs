@@ -64,7 +64,7 @@ public class MoveWhale : MonoBehaviour
                 currentIndex++;
                 if (currentIndex >= route.Count)
                 {
-                    playerHpManager.TakeDamage(whaleAttributes.attackPower);
+                    playerHpManager.TakeDamage(1);
                     Destroy(gameObject);
                 }
             }

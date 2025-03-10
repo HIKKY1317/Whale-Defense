@@ -18,6 +18,7 @@ public class TurretManager : MonoBehaviour
                 GameObject target = FindNearestTarget(turretAttributes);
                 if (target != null)
                 {
+                    RotateTowardsTarget(turretAttributes, target);
                     Shoot(turretAttributes, target);
                     turretAttackManager.ResetAttackCooldown();
                 }
@@ -41,6 +42,21 @@ public class TurretManager : MonoBehaviour
             }
         }
         return nearest;
+    }
+
+    private void RotateTowardsTarget(TurretAttributes turretAttributes, GameObject target)
+    {
+        Transform turretTransform = turretAttributes.gameObject.transform.parent;
+        if (turretTransform == null) return;
+
+        Vector3 direction = target.transform.position - turretTransform.position;
+        direction.y = 0;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            turretTransform.rotation = targetRotation;
+        }
     }
 
     private void Shoot(TurretAttributes turretAttributes, GameObject target)
