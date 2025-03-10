@@ -593,9 +593,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -992,9 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020211d647f6604fb5c3ed05a0dd0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniTurretPrefab: {fileID: 2587836542152999230, guid: 9ddc53dded6d91445aadeb15942a30aa, type: 3}
-  turretPrefab: {fileID: 2587836542152999230, guid: 67d41aeb371c9f54c8ec9e01465b3c8f, type: 3}
-  largeTurretPrefab: {fileID: 2587836542152999230, guid: 2bf111b16693de44f984426de131d023, type: 3}
+  miniTurretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
+  turretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
+  largeTurretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
   miniTurretCost: 20
   turretCost: 40
   largeTurretCost: 60
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ac8636c71392d498fd5a1be79a6184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mergedTurretPrefab: {fileID: 2587836542152999230, guid: 2bf111b16693de44f984426de131d023, type: 3}
+  mergedTurretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
 --- !u!4 &731012890
 Transform:
   m_ObjectHideFlags: 0
