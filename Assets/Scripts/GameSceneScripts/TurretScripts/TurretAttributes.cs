@@ -17,6 +17,16 @@ public class TurretAttributes : MonoBehaviour
 
     private Dictionary<string, int> activeEffects = new Dictionary<string, int>();
 
+    public Animator animator;
+
+    public void PlayShootAnimation()
+    {
+        if (animator != null)
+        {
+            animator.SetTrigger("Shoot");
+        }
+    }
+
     public void ApplyEffect(string effectName, int level)
     {
         if (activeEffects.ContainsKey(effectName))
@@ -52,6 +62,7 @@ public class TurretAttributes : MonoBehaviour
     public float GetCriticalRate() => criticalRate;
     public float GetCriticalDamage() => criticalDamage;
     public float GetAccuracy() => accuracy;
+    public Animator GetAnimator() => animator;
 
     public void SetAttackPower(int attackPower) => this.attackPower = attackPower;
     public void SetAttackType(string attackType) => this.attackType = attackType;
@@ -63,4 +74,5 @@ public class TurretAttributes : MonoBehaviour
     public void SetCriticalRate(float criticalRate) => this.criticalRate = criticalRate;
     public void SetCriticalDamage(float criticalDamage) => this.criticalDamage = criticalDamage;
     public void SetAccuracy(float accuracy) => this.accuracy = accuracy;
+    public void SetAnimator(Animator animator) => this.animator = animator;
 }

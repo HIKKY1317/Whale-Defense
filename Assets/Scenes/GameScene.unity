@@ -473,7 +473,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 213714050}
-  - component: {fileID: 213714049}
   m_Layer: 0
   m_Name: WhaleManager
   m_TagString: Untagged
@@ -481,19 +480,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &213714049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 213714048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6f8ae4a9d13ab4fbf933896d8d74a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7617768810783061490, guid: d7b5a2fe342de5446995bb5e65e7a5c2, type: 3}
 --- !u!4 &213714050
 Transform:
   m_ObjectHideFlags: 0
@@ -790,6 +776,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &408152479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408152481}
+  - component: {fileID: 408152480}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &408152480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408152479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: f0cc4bb32f5f57c4e8ed88dead76def7, type: 2}
+--- !u!4 &408152481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408152479}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.71463925, y: 2.157025, z: 9.499845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &411758327
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +913,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 505375737}
-  - component: {fileID: 505375736}
   m_Layer: 0
   m_Name: TurretManager
   m_TagString: Untagged
@@ -886,19 +920,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &505375736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505375735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628a9311c14304147984013b74561969, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2458575046307172823, guid: 2685e24a44e7dbe45b32e7aa9c0d79e7, type: 3}
 --- !u!4 &505375737
 Transform:
   m_ObjectHideFlags: 0
@@ -992,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7020211d647f6604fb5c3ed05a0dd0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  miniTurretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
+  miniTurretPrefab: {fileID: 2826350783925607100, guid: 8658f971920c35f4f88a8009e5454545, type: 3}
   turretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
   largeTurretPrefab: {fileID: 6956748766627291912, guid: b026f30bd60c3d7458d9a5b3d1a636a9, type: 3}
   miniTurretCost: 20
@@ -3126,7 +3147,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Mini
+  m_Text: 'Fire
 
     Turret'
 --- !u!222 &1819889557
@@ -3370,3 +3391,4 @@ SceneRoots:
   - {fileID: 1746246268}
   - {fileID: 256111140}
   - {fileID: 1485450904}
+  - {fileID: 408152481}

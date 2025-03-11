@@ -296,9 +296,7 @@ GameObject:
   - component: {fileID: 64763603921855629}
   - component: {fileID: 5185154024098954918}
   - component: {fileID: 5799963059535088546}
-  - component: {fileID: 4364755768810577093}
   - component: {fileID: 4023622101510421688}
-  - component: {fileID: 2241221529367572617}
   m_Layer: 7
   m_Name: Whale
   m_TagString: Whale
@@ -407,20 +405,9 @@ MonoBehaviour:
   maxHp: 150
   hp: 150
   swimSpeed: 0.6
-  attackPower: 7
-  attackType: Physical
   defense: 5
   magicDefense: 5
-  attackSpeed: 0.05
-  attackRange: 5
-  isAreaAttack: 0
-  chainTargets: 1
-  simultaneousAttacks: 1
-  criticalRate: 0.1
-  criticalDamage: 1.5
-  accuracy: 0.9
   evasion: 0.1
-  turretElement: Fire
   rewardMoney: 20
 --- !u!114 &5799963059535088546
 MonoBehaviour:
@@ -439,18 +426,6 @@ MonoBehaviour:
   hpBarForeground: {fileID: 5353255364085039844}
   heightAboveWhale: 1
   imageSize: {x: 1, y: 0.2}
---- !u!114 &4364755768810577093
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643214508389968036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d64139e1c3aab4c817bfea2a4d7f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4023622101510421688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,19 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3e68e643b3c03408f234e0da5f94cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2241221529367572617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5643214508389968036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f6f8ae4a9d13ab4fbf933896d8d74a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7617768810783061490, guid: d7b5a2fe342de5446995bb5e65e7a5c2, type: 3}
 --- !u!1 &6057952976397638249
 GameObject:
   m_ObjectHideFlags: 0

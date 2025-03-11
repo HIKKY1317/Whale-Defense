@@ -61,6 +61,11 @@ public class TurretManager : MonoBehaviour
 
     private void Shoot(TurretAttributes turretAttributes, GameObject target)
     {
+        Animator animator = turretAttributes.GetAnimator();
+        if (animator != null)
+        {
+            animator.SetTrigger("Shoot");
+        }
         GameObject bullet = Instantiate(bulletPrefab, turretAttributes.gameObject.transform.position, Quaternion.identity);
         BulletController bulletController = bullet.GetComponent<BulletController>();
         if (bulletController != null)
