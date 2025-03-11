@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
     private GameObject target;
     private int attackPower;
-    private float speed = 10f;
+    private float speed = 2.5f;
 
     void Update()
     {
