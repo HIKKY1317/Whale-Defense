@@ -31,7 +31,7 @@ public class WhaleMover : MonoBehaviour
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, targetPosition) < 1f)
+            if (Vector3.Distance(transform.position, targetPosition) < 2f)
             {
                 isMoving = false;
                 state = MoveState.Arrived;
