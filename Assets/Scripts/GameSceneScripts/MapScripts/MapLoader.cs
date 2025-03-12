@@ -75,14 +75,5 @@ public class MapLoader : MonoBehaviour
         {
             Debug.LogError("MapManager not found.");
         }
-
-        if (cameraController != null)
-        {
-            cameraController.SetCameraPosition(map);
-        }
-        else
-        {
-            Debug.LogError("CameraController not found.");
-        }
     }
 }

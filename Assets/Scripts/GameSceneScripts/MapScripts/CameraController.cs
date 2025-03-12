@@ -2,44 +2,34 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float cameraAngleRadiansDegrees = 75f;
+    public float moveSpeed = 5.0f;
+    public float lookSpeed = 2.0f;
+    private float rotationX = 0f;
+    private float rotationY = 0f;
 
-    private float verticalFov = 60f;
-    private float screenWidth = 1920f;
-    private float screenHeight = 1080f;
-
-    public void SetCameraPosition(char[,] map)
+    void Start()
     {
-        if (map == null) return;
+        Vector3 pos = transform.position;
+        pos.y = 2.0f;
+        transform.position = pos;
+    }
 
-        int cols = map.GetLength(0);
-        int rows = map.GetLength(1);
+    void Update()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            float mouseX = Input.GetAxis("Mouse X") * lookSpeed;
+            float mouseY = Input.GetAxis("Mouse Y") * lookSpeed;
+            rotationY += mouseX;
+            rotationX -= mouseY;
+            rotationX = Mathf.Clamp(rotationX, -90f, 90f);
+            transform.rotation = Quaternion.Euler(rotationX, rotationY, 0f);
+        }
 
-        float leftMargin = 200f / screenWidth * rows;
-        float rightMargin = 200f / screenWidth * rows;
-        float upperMargin = 200f / screenHeight * cols;
-        float bottomMargin = 300f / screenHeight * cols;
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        move = transform.TransformDirection(move) * moveSpeed * Time.deltaTime;
+        transform.position += new Vector3(move.x, 0, move.z);
 
-        float xMapCenter = (cols - upperMargin + bottomMargin) / 2f;
-        float zMapCenter = (rows - leftMargin + rightMargin) / 2f;
-
-        float mapHeight = cols + bottomMargin + upperMargin;
-        float mapWidth = rows + rightMargin + leftMargin;
-
-        float distance = (mapHeight / 2f) / (Mathf.Cos(Mathf.Deg2Rad * (90f - cameraAngleRadiansDegrees)) - Mathf.Sin(Mathf.Deg2Rad * (90f - cameraAngleRadiansDegrees))) * Mathf.Cos(Mathf.Deg2Rad * (90f - cameraAngleRadiansDegrees));
-
-        float horizontalFov = 2f * Mathf.Atan(Mathf.Tan(Mathf.Deg2Rad * verticalFov / 2f) * (screenWidth / screenHeight));
-
-        float distanceHorizontal = (mapWidth / 2f) / Mathf.Tan(horizontalFov / 2f);
-
-        float finalDistance = Mathf.Max(distance, distanceHorizontal);
-
-        Camera mainCamera = Camera.main;
-        if (mainCamera == null) return;
-
-        float xOffset = finalDistance * Mathf.Tan(Mathf.Deg2Rad * (90f - cameraAngleRadiansDegrees));
-
-        mainCamera.transform.position = new Vector3(xMapCenter + xOffset, finalDistance, zMapCenter);
-        mainCamera.transform.rotation = Quaternion.Euler(cameraAngleRadiansDegrees, -90f, 0f);
+        transform.position = new Vector3(transform.position.x, 2.0f, transform.position.z);
     }
 }
